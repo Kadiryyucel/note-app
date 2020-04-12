@@ -1,10 +1,8 @@
 <template>
   <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
-    </div>
-    <router-view/>
+    <navigator :title="'NoteApp'">
+      <router-view/>
+    </navigator>
   </div>
 </template>
 
@@ -25,8 +23,22 @@
   font-weight: bold;
   color: #2c3e50;
 }
+.md-drawer{
+  background-color: white;
+}
 
 #nav a.router-link-exact-active {
   color: #42b983;
 }
 </style>
+<script>
+import navigator from './components/Navigator'
+export default {
+  components:{
+    navigator
+  },
+  created(){
+    this.$router.push({name:'login'});
+  }
+}
+</script>
