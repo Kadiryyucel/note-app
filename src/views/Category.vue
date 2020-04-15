@@ -7,7 +7,7 @@
           </md-card-actions>
       </md-card-header>
     <md-list>
-      <md-list-item v-for="item of items" :key="item.id">{{item.title}}</md-list-item>
+      <md-list-item @click="to(item)" v-for="item of items" :key="item.id">{{item.title}}</md-list-item>
     </md-list>
   </md-card>
 </template>
@@ -25,6 +25,9 @@ export default {
   methods: {
     async fetch() {
       this.items = await this.$di.categories.get();
+    },
+    to(elem){
+      this.$router.push({name:'edit-category',params:{id:elem.id}});
     }
   }
 };

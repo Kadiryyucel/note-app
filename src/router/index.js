@@ -22,6 +22,12 @@ Vue.use(VueRouter);
     path:'/categories/new',
     name:'new-category',
     component:()=>import('../views/New-Category.vue')
+  },
+  {
+    path:'/categories/:id',
+    name:'edit-category',
+    component:()=>import('../views/Edit-Category.vue')
+
   }
 ]
 
